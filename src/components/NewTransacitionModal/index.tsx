@@ -10,15 +10,12 @@ interface NewTransacitionModalProps {
     isOpen: boolean;
     onRequestClose: () => void;
 } 
-
 export function NewTransacitionModal({isOpen,onRequestClose}: NewTransacitionModalProps){
     const {createTransaction} = useTransactions();
-
     const [title,setTitle] = useState('');
     const [amount,setAmount] = useState(0);
     const [category,setCategory] = useState('');
     const [type,setType] = useState('deposit');
-
     async function handleCreateNewTransacition(event:FormEvent){
         event.preventDefault();
         await createTransaction ({
@@ -27,14 +24,12 @@ export function NewTransacitionModal({isOpen,onRequestClose}: NewTransacitionMod
             category, 
             type,
         })
-
         setTitle('');
         setAmount(0);
         setCategory('');
         setType('deposit');
         onRequestClose();
     }
-
     return (
         <>
         <Modal 

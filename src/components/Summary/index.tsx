@@ -4,10 +4,8 @@ import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import totalImg from '../../assets/total.svg';
 
-
 export function Summary (){
     const {transactions} = useTransactions();
-
     const summary = transactions.reduce((acc,transaction) => {
         if(transaction.type === 'deposit'){
             acc.deposits += transaction.amount;
@@ -22,7 +20,6 @@ export function Summary (){
         withdraws:0,
         total:0,
     })
-
     return (
        <Container>
            <div>
